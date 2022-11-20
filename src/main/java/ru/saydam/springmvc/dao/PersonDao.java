@@ -14,7 +14,7 @@ public class PersonDao {
     {
         people = new ArrayList<>();
         people.add(new Person(++PEOPLE_COUNT, "Rustam"));
-        people.add(new Person(++PEOPLE_COUNT,"Anya"));
+        people.add(new Person(++PEOPLE_COUNT, "Anya"));
         people.add(new Person(++PEOPLE_COUNT, "Olga"));
         people.add(new Person(++PEOPLE_COUNT, "Sergey"));
     }
@@ -25,5 +25,11 @@ public class PersonDao {
 
     public Person show(int id) {
         return people.stream().filter(person -> person.getId() == id).findAny().orElse(null);
+    }
+
+    public void save(Person person) {
+        person.setId(++PEOPLE_COUNT);
+        people.add(person);
+
     }
 }
